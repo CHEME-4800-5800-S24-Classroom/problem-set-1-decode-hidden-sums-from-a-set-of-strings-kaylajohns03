@@ -1,5 +1,7 @@
 # ===== PRIVATE METHODS BELOW HERE =================================================================================== #
 # TODO: Put private helper methods here. Don't forget to use the _ naming convention, and to add basic documentation.
+#function _decode_part_1(model::MyPuzzleRecordModel)::Int64
+
 # ===== PRIVATE METHODS ABOVE HERE =================================================================================== #
 
 # ===== PUBLIC METHODS BELOW HERE ==================================================================================== #
@@ -13,10 +15,11 @@ function decode_part_1(models::Dict{Int64, MyPuzzleRecordModel})::Tuple{Int64, D
     # initialize -
     total = 0;
     codes = Dict{Int64, Int64}();
-    
-    # TODO: Add the logic for part 1 here
-    # ...
-    
+   
+
+    for(key, value) ∈ models
+        codes[key] = _decode_part_1(value)
+        
     # return the total -
     return (total, codes);
 end
