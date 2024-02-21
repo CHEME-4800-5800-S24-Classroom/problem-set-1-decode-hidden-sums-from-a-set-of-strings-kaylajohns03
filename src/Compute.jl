@@ -1,6 +1,24 @@
 # ===== PRIVATE METHODS BELOW HERE =================================================================================== #
 # TODO: Put private helper methods here. Don't forget to use the _ naming convention, and to add basic documentation.
-#function _decode_part_1(model::MyPuzzleRecordModel)::Int64
+
+# returns combination of first and last number the record 
+function _decode_part_1(model::MyPuzzleRecordModel)::Int64
+    #import character array for the model 
+    character = model.characters
+    digits = filter(isdigit, character);
+    value = Array{Char,1}();
+
+    push!(value, digits[1]);
+    push!(value, digits[end]);
+
+    #take value and make it an integer 
+    x = value |> join
+    integer = parse(Int64, x)
+    return integer
+
+end
+
+
 
 # ===== PRIVATE METHODS ABOVE HERE =================================================================================== #
 
@@ -17,8 +35,15 @@ function decode_part_1(models::Dict{Int64, MyPuzzleRecordModel})::Tuple{Int64, D
     codes = Dict{Int64, Int64}();
    
 
-    for(key, value) ∈ models
-        codes[key] = _decode_part_1(value)
+    for(line, record) ∈ models
+
+        #call decode 
+        codes[line] = _decode_part_1(record);
+
+        #upodate total value 
+        total += codes[line];
+
+    end
         
     # return the total -
     return (total, codes);
@@ -34,10 +59,17 @@ function decode_part_2(models::Dict{Int64, MyPuzzleRecordModel})::Tuple{Int64, D
     # initialize -
     total = 0;
     codes = Dict{Int64, Int64}();
-     
-    # TODO: Add the logic for part 2 here
-    # ...
-     
+
+    for(line, record) ∈ models
+
+        #call decode 
+        codes[line] = _decode_part_1(record);
+
+        #update total value 
+        total += codes[line];
+
+    end
+
      # return the total -
      return (total, codes);
 end
