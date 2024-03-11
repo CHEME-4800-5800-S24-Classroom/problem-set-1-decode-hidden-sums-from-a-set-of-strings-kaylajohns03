@@ -1,10 +1,16 @@
 
-# ===== PRIVATE METHODS BELOW HERE =================================================================================== #
-# TODO: Put private helper methods here. Don't forget to use the _ naming convention, and to add basic documentation.
-# ===== PRIVATE METHODS ABOVE HERE =================================================================================== #
-
 # ===== PUBLIC METHODS BELOW HERE =================================================================================== #
-# TODO: Make a build method to construct MyPuzzleRecordModel types
+"""
+function build(record::String)::MyPuzzleRecordModel
+
+Builds a MyPuzzleRecordModel from an encoded line of text with fields character, len (length), and record populated
+
+Arguments: 
+- record::String: encoded line of text from a file
+
+Returns: a MyPuzzleRecordModel instance with all fields populated from the given line of text
+"""
+
 function build(record::String)::MyPuzzleRecordModel
 
     #initalize 

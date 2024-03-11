@@ -3,7 +3,13 @@
 """
     puzzleparse(filename::String) -> Dict{Int64, MyPuzzleRecordModel}
 
-TODO: Add documentation
+Takes a file path and loads each line of the file into a dictonary 
+
+Arguments: 
+- filename::String: The name of the file to be loaded in 
+
+Returns: A Dictonary with the keys as the line numbers in the fine (starting at 1) and the values as a 
+MyPuzzleRecordModel instance that holds the encoded line of text corresponding to that line number
 """
 function puzzleparse(filename::String)::Dict{Int64, MyPuzzleRecordModel}
     
